@@ -2,6 +2,7 @@ package com.lgior.katas
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 class CandidateFilterTest {
     @Test
@@ -13,11 +14,21 @@ class CandidateFilterTest {
     }
 
     @Test
-    fun `group by anagrams`() {
-        val candidates = listOf("casa", "arca", "cara")
-
-        val matchers = listOf(CharMatcher('c'), CharMatcher('r'), CharMatcher('a', 2))
+    fun `find traits of word`() {
+        val candidate = "cara"
+        val chars = candidate.toCharArray().distinct()
+        assertEquals(3, chars.size)
+        val map = chars.associateWith { countOccurrences(candidate, it) }
+        assertEquals(3,  map.size)
+        assertEquals(1, map['c'])
+        assertEquals(2, map['a'])
+        assertEquals(1, map['r'])
     }
+
+    private fun countOccurrences(word: String, character: Char): Int {
+        return word.count { it == character }
+    }
+
 }
 
 interface WordList {
