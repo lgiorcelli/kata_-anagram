@@ -16,3 +16,13 @@ Primeras consideraciones:
 ### Observacion
 Creo q seria mas eficiente hacer un todos contra todos que hacer palabra por palabra
 Los tests deberian considerar tiempos?
+
+### Iteracion 1
+1- reducir la complejidad de la prueba tomando grupos reducidos de palabras
+2- buscar agrupar candidatos, en principio, palabras del mismo largo
+3- Todas las palabras son validas, porque salen de un archivo validado
+4- Cuando tenga las listas con igual tamaño de palabras, voy a agrupar por anagramas. Puedo agrupar dependiendo q letras contiene cada palabra
+Descubro una necesidad, matchear por letra o grupo de letras. Creo un objeto para q encapsule esa responsabilidad
+### Insight
+Puedo tener "traits" o caracteristicas de las palabras, y luego matchear por caracteristicas. Con esto generalizo un poco los atributos de las palabras y puedo buscar anagramas mas facilmente
+Cambio entonces Matcher por Traits
