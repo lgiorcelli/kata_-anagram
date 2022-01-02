@@ -15,6 +15,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test-junit5"))
     testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    testCompile("org.junit.jupiter:junit-jupiter-params:$junitVersion")
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion")
 }
 tasks.withType<KotlinCompile>() {
