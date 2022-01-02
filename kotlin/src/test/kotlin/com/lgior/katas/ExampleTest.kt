@@ -1,4 +1,4 @@
-package com.peya.katas
+package com.lgior.katas
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
