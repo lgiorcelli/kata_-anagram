@@ -1,5 +1,6 @@
 package com.lgior.katas
 
+import calculateTraits
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
@@ -37,10 +38,6 @@ class CandidateFilterTest {
         assertEquals(1, traits['e'])
     }
 
-    private fun calculateTraits(candidate: String): Map<Char, Int> {
-        val chars = candidate.toCharArray().distinct()
-        return chars.associateWith { char ->  candidate.count { char == it } }
-    }
 
     @Test
     fun `compare traits that matches`() {
@@ -59,6 +56,8 @@ class CandidateFilterTest {
     }
 
 }
+
+
 
 interface WordList {
     fun findWordsOf(longitude: Int): List<String>
