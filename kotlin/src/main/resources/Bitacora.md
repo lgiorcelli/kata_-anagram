@@ -18,11 +18,21 @@ Creo q seria mas eficiente hacer un todos contra todos que hacer palabra por pal
 Los tests deberian considerar tiempos?
 
 ### Iteracion 1
-1- reducir la complejidad de la prueba tomando grupos reducidos de palabras
-2- buscar agrupar candidatos, en principio, palabras del mismo largo
-3- Todas las palabras son validas, porque salen de un archivo validado
-4- Cuando tenga las listas con igual tamaño de palabras, voy a agrupar por anagramas. Puedo agrupar dependiendo q letras contiene cada palabra
+- reducir la complejidad de la prueba tomando grupos reducidos de palabras  
+- buscar agrupar candidatos, en principio, palabras del mismo largo  
+- Todas las palabras son validas, porque salen de un archivo validado  
+- Cuando tenga las listas con igual tamaño de palabras, voy a agrupar por anagramas. Puedo agrupar dependiendo q letras contiene cada palabra  
 Descubro una necesidad, matchear por letra o grupo de letras. Creo un objeto para q encapsule esa responsabilidad
 ### Insight
 Puedo tener "traits" o caracteristicas de las palabras, y luego matchear por caracteristicas. Con esto generalizo un poco los atributos de las palabras y puedo buscar anagramas mas facilmente
 Cambio entonces Matcher por Traits
+
+### Iteración 2
+- Una vez implementados los traits, el desafío ahora pasa por las operaciones de colecciones propias de Kotlin
+Por otro lado, pase a usar mas prueba y error sobre un subconjunto de elementos de la lista de palabras
+Esto se dio mas q nada porque me resulto mas facil ir a verificar en un resultado si estaba bien el algoritmo o no, que armar un set de datos para realizar tests. =(
+- Para agrupar valores y sus traits cree la clase ClassifiedWord.
+#### Cosas a mejorar
+- Operar sobre el archivo completo
+- Revisar tiempos de ejecucion y recursos consumidos
+- Armar un ejecutable para darle cierre a la kata

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
-class CandidateFilterTest {
+class TraitsCalculatorTest {
     @Test
     fun `filter candidates given size`() {
         val list = DummyWordList("cara", "asa", "arca", "casa")
