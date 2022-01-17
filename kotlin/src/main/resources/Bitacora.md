@@ -36,3 +36,8 @@ Esto se dio mas q nada porque me resulto mas facil ir a verificar en un resultad
 - Operar sobre el archivo completo
 - Revisar tiempos de ejecucion y recursos consumidos
 - Armar un ejecutable para darle cierre a la kata
+
+### Iteracion 3
+#### Cosas a mejorar
+- Si bien se esta resolviendo la igualdad y el agrupamiento, dependemos directamente de las herramientas de kotlin, haciendo complejo algun cambio de estrategia. Encapsularlo haria mas facil proximos cambios
+- Organizar los pasos para poder encapsular las partes y mejorar el entendimiento. 

@@ -1,6 +1,5 @@
 package com.lgior.katas
 
-import calculateTraits
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
