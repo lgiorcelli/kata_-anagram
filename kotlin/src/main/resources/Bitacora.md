@@ -40,4 +40,8 @@ Esto se dio mas q nada porque me resulto mas facil ir a verificar en un resultad
 ### Iteracion 3
 #### Cosas a mejorar
 - Si bien se esta resolviendo la igualdad y el agrupamiento, dependemos directamente de las herramientas de kotlin, haciendo complejo algun cambio de estrategia. Encapsularlo haria mas facil proximos cambios
-- Organizar los pasos para poder encapsular las partes y mejorar el entendimiento. 
+- Organizar los pasos para poder encapsular las partes y mejorar el entendimiento.
+#### Insights
+Trabajar con transformaciones es mas complejo si no hay entidades que reifiquen conceptos. El Value class Traits sirvio mucho para desambiguar entries y maps
+Una vez claro la cadena de transformaciones, agregar filtros para optimizar el analisis es supers simple
+Tambien es muy util incorporar extensiones para agrupar funciones.

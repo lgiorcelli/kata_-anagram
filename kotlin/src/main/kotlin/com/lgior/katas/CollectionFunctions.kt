@@ -14,5 +14,12 @@ fun Set<Map.Entry<Map<Char, Int>, List<ClassifiedWord>>>.prettyPrint(): Unit {
         .forEach { entry -> println("size: ${entry.size} - values: ${entry.map { value -> value.word }}") }
 }
 
-fun Map<Map<Char, Int>, List<ClassifiedWord>>.countAnagrams() =
+fun Map<Traits, List<ClassifiedWord>>.countAnagrams() =
     entries.filter { it.value.size > 1 }.size
+
+fun List<ClassifiedWord>.processGroup() {
+    val grouped = groupBy { it.traits }
+    println("words = $size")
+    println("anagrams found = ${grouped.countAnagrams()}")
+    //grouped.entries.prettyPrint()
+}
