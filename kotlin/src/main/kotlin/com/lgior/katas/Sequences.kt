@@ -1,6 +1,5 @@
 import com.lgior.katas.calculateTraits
-import com.lgior.katas.countAnagrams
-import com.lgior.katas.prettyPrint
+import com.lgior.katas.processGroup
 import java.io.File
 import kotlin.system.measureTimeMillis
 
@@ -9,21 +8,22 @@ private const val FILE = "/Users/leonardo.giorcelli/sources/mio/kata_anagram/kot
 
 fun usingSequences() {
     val timeMillis = measureTimeMillis {
-        val words = mutableListOf<ClassifiedWord>()
-        File(FILE).useLines {
-            sequence -> val groupedByLength = sequence
-            .groupBy { it.length }[5]!!
-            .forEach {
-                words.add(ClassifiedWord(it, calculateTraits(it.toLowerCase())))
-            }
-
+        File(FILE).useLines { sequence ->
+            sequence
+                .groupBy { it.length }
+                .filter { it.value.size > 1 }
+                .map { wordsByLength ->
+                    wordsByLength.value.map { ClassifiedWord(it, calculateTraits(it.toLowerCase())) }
+                }
+                .map { classifiedWords ->
+                    classifiedWords.processGroup()
+                }
         }
-        val grouped = words.groupBy { it.traits }
-        println("words = ${words.size}")
-        println("anagrams found = ${grouped.countAnagrams()}")
-
         //grouped.entries.prettyPrint()
     }
     println("sequences took = $timeMillis")
 }
+/*
+ sequences took = 5070
+*/
 
