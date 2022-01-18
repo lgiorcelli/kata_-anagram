@@ -7,23 +7,30 @@ private const val FILE = "/Users/leonardo.giorcelli/sources/mio/kata_anagram/kot
 
 fun usingCollections() {
     val timeMillis = measureTimeMillis {
-        val wordsByLength = mutableMapOf<Int, List<ClassifiedWord>>()
-        val wordsOfLengthFive = mutableListOf<ClassifiedWord>()
-        val wordsOfLengthSix = mutableListOf<ClassifiedWord>()
-        wordsByLength[5] = wordsOfLengthFive
-        wordsByLength[6] = wordsOfLengthSix
+        val wordsByLength = mutableMapOf<Int, MutableList<ClassifiedWord>>()
         File(FILE).forEachLine {
-            if (it.length == 5) {
-                wordsOfLengthFive.add(ClassifiedWord(it, calculateTraits(it.toLowerCase())))
-            }
-            if (it.length == 6) {
-                wordsOfLengthSix.add(ClassifiedWord(it, calculateTraits(it.toLowerCase())))
-            }
+            val processed = getListGivenWordSize(wordsByLength, it)
+            processed.add(ClassifiedWord(it, calculateTraits(it.toLowerCase())))
         }
-        wordsByLength[5]!!.processGroup()
-        wordsByLength[6]!!.processGroup()
+        wordsByLength
+            .filter { it.value.size > 1 }
+            .map {
+                entry -> entry.value.processGroup()
+        }
     }
     println("collections took = $timeMillis")
+}
+
+private fun getListGivenWordSize(
+    wordsByLength: MutableMap<Int, MutableList<ClassifiedWord>>,
+    it: String
+): MutableList<ClassifiedWord> {
+    val processed = wordsByLength[it.length] ?: run {
+        val list = mutableListOf<ClassifiedWord>()
+        wordsByLength[it.length] = list
+        list
+    }
+    return processed
 }
 
 
