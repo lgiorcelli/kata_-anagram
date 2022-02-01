@@ -1,10 +1,13 @@
 package com.lgior.katas
 
-import usingCollections
-import usingUngrupedCollections
+import kotlinx.coroutines.runBlocking
 import usingSequences
+import kotlin.system.measureTimeMillis
 
-fun main() {
-    //usingSequences()
-    usingCollections()
+fun main() = runBlocking {
+    val timeMillis = measureTimeMillis {
+        usingSequences()
+    }
+    println("sequences took = $timeMillis")
+    //usingCollections()
 }

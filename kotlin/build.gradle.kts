@@ -13,6 +13,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
     testImplementation(kotlin("test-junit5"))
     testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
     testCompile("org.junit.jupiter:junit-jupiter-params:$junitVersion")

@@ -1,5 +1,6 @@
 import com.lgior.katas.calculateTraits
 import com.lgior.katas.processGroup
+import kotlinx.coroutines.runBlocking
 import java.io.File
 import kotlin.system.measureTimeMillis
 
@@ -10,9 +11,11 @@ fun usingUngrupedCollections() {
     val timeMillis = measureTimeMillis {
         val words = mutableListOf<ClassifiedWord>()
         File(FILE).forEachLine {
-                words.add(ClassifiedWord(it, calculateTraits(it.toLowerCase())))
+            words.add(ClassifiedWord(it, calculateTraits(it.toLowerCase())))
         }
-        words.processGroup()
+        runBlocking {
+            words.processGroup()
+        }
     }
     println("collections took = $timeMillis")
 }

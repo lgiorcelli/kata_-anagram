@@ -5,8 +5,7 @@ fun calculateTraits(candidate: String): Traits {
     return Traits( chars.associateWith { char -> candidate.count { char == it } })
 }
 
-@JvmInline
-value class Traits(private val value: Map<Char, Int>) {
+data class Traits(private val value: Map<Char, Int>) {
     operator fun get(char: Char): Int {
         return value[char] ?: 0
     }

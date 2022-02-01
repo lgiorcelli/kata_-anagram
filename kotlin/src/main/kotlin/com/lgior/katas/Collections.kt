@@ -1,5 +1,6 @@
 import com.lgior.katas.calculateTraits
 import com.lgior.katas.processGroup
+import kotlinx.coroutines.runBlocking
 import java.io.File
 import kotlin.system.measureTimeMillis
 
@@ -15,8 +16,9 @@ fun usingCollections() {
         wordsByLength
             .filter { it.value.size > 1 }
             .map {
-                entry -> entry.value.processGroup()
-        }
+                runBlocking { it.value.processGroup()
+                }
+            }
     }
     println("collections took = $timeMillis")
 }

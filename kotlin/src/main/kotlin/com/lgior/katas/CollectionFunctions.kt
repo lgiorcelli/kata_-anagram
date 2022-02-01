@@ -17,9 +17,13 @@ fun Set<Map.Entry<Map<Char, Int>, List<ClassifiedWord>>>.prettyPrint(): Unit {
 fun Map<Traits, List<ClassifiedWord>>.countAnagrams() =
     entries.filter { it.value.size > 1 }.size
 
-fun List<ClassifiedWord>.processGroup() {
+suspend fun List<ClassifiedWord>.processGroup() {
+    //println("hola")
+    //val start = System.currentTimeMillis()
     val grouped = groupBy { it.traits }
-    println("words = $size")
+        .also { println("process one group of ${this.size}= ${System.currentTimeMillis()}") }
+    //println("words = $size")
+    println("thread 2: ${Thread.currentThread().name}")
     println("anagrams found = ${grouped.countAnagrams()}")
     //grouped.entries.prettyPrint()
 }
